@@ -3,11 +3,11 @@
 Three pipelines following the block diagram in the assignment (preprocessing -> feature extraction -> temporal/contextual modelling -> fusion -> classifier), evaluated under three protocols.
 
 ## Where to find each deliverable
-- **Report** (architecture decisions, experiments, analysis): [`../Assignment_2B_Report.docx`](../Assignment_2B_Report.docx), covering A. architecture decisions per block, B. speech-only vs text-only vs fusion experiments, C. analysis (easiest/hardest emotions, when fusion helps, failure cases, separability of the temporal, contextual and fusion representations)
-- **Code**: `common/`, `models/`, `analyze.py`; notebook runner [`../Assignment2b_Kaggle.ipynb`](../Assignment2b_Kaggle.ipynb)
-- **Results**: [`Results/`](Results/) (see `Results/README.md`)
-- **Figures**: `Results/3_speaker_FINAL/comparison/` (t-SNE plots, accuracy and per-emotion F1 plots)
-- **Failure cases**: `Results/3_speaker_FINAL/comparison/failure_cases.md`
+- **Report** (A. architecture decisions per block, B. speech-only vs text-only vs fusion experiments, C. analysis: easiest/hardest emotions, when fusion helps, failure cases, separability of the temporal, contextual and fusion representations): [`Report.pdf`](Report.pdf)
+- **Code**: [`project/common/`](project/common/), [`project/models/`](project/models/), [`project/analyze.py`](project/analyze.py); notebook runner [`assignment-2b.ipynb`](assignment-2b.ipynb)
+- **Results**: [`project/Results/`](project/Results/) (guide: [`Results_README.md`](project/Results/Results_README.md))
+- **Figures**: [`project/Results/3_speaker_FINAL/comparison/`](project/Results/3_speaker_FINAL/comparison/) (t-SNE plots, accuracy and per-emotion F1 plots)
+- **Failure cases**: [`failure_cases.md`](project/Results/3_speaker_FINAL/comparison/failure_cases.md)
 
 ## Results (test accuracy / macro-F1, %)
 
@@ -52,7 +52,7 @@ TESS = 2 speakers (OAF, YAF) x 200 words x 7 emotions = 2800 clips, all in the c
 - DistilBERT failures raise an error (no silent fallback). The text encoder, speech features and split actually used are stored in each `metrics.json`.
 
 ## Run (Kaggle or local)
-Run all commands from this folder (`project/`). Easiest: run `Assignment2b_Kaggle.ipynb` (one level up) on Kaggle (add the TESS dataset, GPU on, Internet on). It writes this whole project and runs every experiment. Locally:
+Run the commands below from `assignment_2b/project/`. Easiest: run [`assignment-2b.ipynb`](assignment-2b.ipynb) on Kaggle (add the TESS dataset, GPU on, Internet on). It writes this whole project and runs every experiment. Locally:
 ```bash
 pip install -r requirements.txt
 # --data_dir is auto-detected under /kaggle/input; locally pass the folder containing the .wav files
@@ -77,7 +77,7 @@ For protocol 2 drop `--speech_feat wavlm --spk_norm`. For the reverse-direction 
 Other flags: `--epochs 40 --lr 1e-3 --batch_size 32 --seed 42 --text_encoder {distilbert,scratch} --allow_fallback`.
 
 ## Outputs
-Scripts write to `Results/` by default (or `--results_dir`). In this repo the runs are organised as follows (see `Results/README.md` for details):
+Scripts write to `Results/` (inside `project/`) by default (or `--results_dir`). In this repo the runs are organised as follows (see `project/Results/Results_README.md` for details):
 ```
 Results/
 ├── 1_word_disjoint/                protocol 1
@@ -96,15 +96,15 @@ Each full run folder contains:
 ## Code layout
 ```
 assignment_2b/
-├── Report.pdf       technical report (with references)
-├── Assignment2b_Kaggle.ipynb       one-notebook runner for Kaggle (writes project/ and runs everything)
-├── README.md 
-└── project/                        this folder
-    ├── common/                     data.py (parsing, splits, preprocessing, features), models.py, train_utils.py
+├── README.md                 this file
+├── Report.pdf                technical report (with references)
+├── assignment-2b.ipynb       one-notebook runner for Kaggle (writes project/ and runs everything)
+└── project/
+    ├── common/               data.py (parsing, splits, preprocessing, features), models.py, train_utils.py
     ├── models/{speech,text,fusion}_pipeline/{train.py,test.py}
-    ├── analyze.py                  comparison tables, t-SNE, failure cases
-    ├── Results/
-    └── requirements.txt
+    ├── analyze.py            comparison tables, t-SNE, failure cases
+    ├── requirements.txt
+    └── Results/              all experiment outputs + Results_README.md
 ```
 
 ## External resources
