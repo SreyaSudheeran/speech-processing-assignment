@@ -2,6 +2,13 @@
 
 Three pipelines following the block diagram in the assignment (preprocessing -> feature extraction -> temporal/contextual modelling -> fusion -> classifier), evaluated under three protocols.
 
+## Where to find each deliverable
+- **Report** (architecture decisions, experiments, analysis): [`../Assignment_2B_Report.docx`](../Assignment_2B_Report.docx), covering A. architecture decisions per block, B. speech-only vs text-only vs fusion experiments, C. analysis (easiest/hardest emotions, when fusion helps, failure cases, separability of the temporal, contextual and fusion representations)
+- **Code**: `common/`, `models/`, `analyze.py`; notebook runner [`../Assignment2b_Kaggle.ipynb`](../Assignment2b_Kaggle.ipynb)
+- **Results**: [`Results/`](Results/) (see `Results/README.md`)
+- **Figures**: `Results/3_speaker_FINAL/comparison/` (t-SNE plots, accuracy and per-emotion F1 plots)
+- **Failure cases**: `Results/3_speaker_FINAL/comparison/failure_cases.md`
+
 ## Results (test accuracy / macro-F1, %)
 
 | Protocol | Speech-only | Text-only | Multimodal (fusion) |
@@ -45,7 +52,7 @@ TESS = 2 speakers (OAF, YAF) x 200 words x 7 emotions = 2800 clips, all in the c
 - DistilBERT failures raise an error (no silent fallback). The text encoder, speech features and split actually used are stored in each `metrics.json`.
 
 ## Run (Kaggle or local)
-Run all commands from this folder (`assignment_2b/`). Easiest: run `Assignment2b_Kaggle.ipynb` on Kaggle (add the TESS dataset, GPU on, Internet on). It writes this whole project and runs every experiment. Locally:
+Run all commands from this folder (`project/`). Easiest: run `Assignment2b_Kaggle.ipynb` (one level up) on Kaggle (add the TESS dataset, GPU on, Internet on). It writes this whole project and runs every experiment. Locally:
 ```bash
 pip install -r requirements.txt
 # --data_dir is auto-detected under /kaggle/input; locally pass the folder containing the .wav files
@@ -89,14 +96,15 @@ Each full run folder contains:
 ## Code layout
 ```
 assignment_2b/
-├── common/            data.py (parsing, splits, preprocessing, features), models.py, train_utils.py
-├── models/{speech,text,fusion}_pipeline/{train.py,test.py}
-├── analyze.py         comparison tables, t-SNE, failure cases
-├── Assignment2b_Kaggle.ipynb   one-notebook runner for Kaggle
-├── Assignment_2B_Report.docx   technical report (with references)
-├── Results/
-├── README.md
-└── requirements.txt
+├── Report.pdf       technical report (with references)
+├── Assignment2b_Kaggle.ipynb       one-notebook runner for Kaggle (writes project/ and runs everything)
+├── README.md 
+└── project/                        this folder
+    ├── common/                     data.py (parsing, splits, preprocessing, features), models.py, train_utils.py
+    ├── models/{speech,text,fusion}_pipeline/{train.py,test.py}
+    ├── analyze.py                  comparison tables, t-SNE, failure cases
+    ├── Results/
+    └── requirements.txt
 ```
 
 ## External resources
