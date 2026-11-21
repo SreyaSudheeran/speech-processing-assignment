@@ -1,0 +1,4 @@
+Representation,Silhouette (emotion labels),"kNN acc (fit train, eval test)"
+Temporal modelling (speech),0.3674,0.3336
+Contextual modelling (text),-0.005,0.1429
+Fusion block,0.3073,0.485

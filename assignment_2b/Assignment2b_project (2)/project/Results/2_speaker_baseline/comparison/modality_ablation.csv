@@ -1,0 +1,4 @@
+model,test_accuracy,test_macro_f1
+fusion (both inputs),0.5021,0.4441
+"fusion, text zeroed",0.5021,0.444
+"fusion, speech zeroed",0.1429,0.0357

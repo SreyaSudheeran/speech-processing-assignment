@@ -1,0 +1,11 @@
+{
+ "model": "fusion",
+ "test_accuracy": 0.6292857142857143,
+ "test_macro_f1": 0.5593387845284744,
+ "n_test": 1400,
+ "speech_feat": "wavlm",
+ "spk_norm": true,
+ "split": "speaker(test=YAF)",
+ "text_encoder": "distilbert",
+ "n_params": 1759753
+}

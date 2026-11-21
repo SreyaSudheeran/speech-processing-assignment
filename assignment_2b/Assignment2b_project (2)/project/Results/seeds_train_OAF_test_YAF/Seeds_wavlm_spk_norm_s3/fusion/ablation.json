@@ -1,0 +1,32 @@
+[
+ {
+  "model": "fusion",
+  "test_accuracy": 0.6671428571428571,
+  "test_macro_f1": 0.5882516141010321,
+  "n_test": 1400,
+  "speech_feat": "wavlm",
+  "spk_norm": true,
+  "split": "speaker(test=YAF)",
+  "text_encoder": "distilbert"
+ },
+ {
+  "model": "fusion_speech_only_input",
+  "test_accuracy": 0.6664285714285715,
+  "test_macro_f1": 0.5880207526512645,
+  "n_test": 1400,
+  "speech_feat": "wavlm",
+  "spk_norm": true,
+  "split": "speaker(test=YAF)",
+  "text_encoder": "distilbert"
+ },
+ {
+  "model": "fusion_text_only_input",
+  "test_accuracy": 0.14285714285714285,
+  "test_macro_f1": 0.03571428571428571,
+  "n_test": 1400,
+  "speech_feat": "wavlm",
+  "spk_norm": true,
+  "split": "speaker(test=YAF)",
+  "text_encoder": "distilbert"
+ }
+]

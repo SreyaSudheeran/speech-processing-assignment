@@ -1,0 +1,4 @@
+Model,Test accuracy,Macro-F1,Params,Test samples
+Speech-only,69.71,63.79,872200,1400
+Text-only,14.29,3.57,593160,1400
+Multimodal (fusion),64.86,62.43,1759753,1400

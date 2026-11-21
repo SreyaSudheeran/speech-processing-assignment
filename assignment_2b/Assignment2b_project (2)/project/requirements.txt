@@ -1,0 +1,11 @@
+torch>=2.0
+numpy
+pandas
+scikit-learn
+librosa>=0.10
+soundfile
+joblib
+matplotlib
+seaborn
+tabulate
+transformers>=4.30   # only needed for --text_encoder distilbert (needs internet to download weights)

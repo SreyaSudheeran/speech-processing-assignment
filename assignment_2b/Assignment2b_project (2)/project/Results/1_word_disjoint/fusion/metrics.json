@@ -1,0 +1,11 @@
+{
+ "model": "fusion",
+ "test_accuracy": 1.0,
+ "test_macro_f1": 1.0,
+ "n_test": 420,
+ "speech_feat": "logmel",
+ "spk_norm": false,
+ "split": "word",
+ "text_encoder": "distilbert",
+ "n_params": 1309193
+}

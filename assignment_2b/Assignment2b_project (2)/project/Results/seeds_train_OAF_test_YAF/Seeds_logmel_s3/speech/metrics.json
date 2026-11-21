@@ -1,0 +1,11 @@
+{
+ "model": "speech",
+ "test_accuracy": 0.49142857142857144,
+ "test_macro_f1": 0.4515305677267201,
+ "n_test": 1400,
+ "speech_feat": "logmel",
+ "spk_norm": false,
+ "split": "speaker(test=YAF)",
+ "text_encoder": null,
+ "n_params": 421640
+}

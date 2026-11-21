@@ -1,0 +1,8 @@
+,Speech-only,Text-only,Multimodal (fusion)
+angry,0.0319,0.0,0.351
+disgust,0.6982,0.0,0.9826
+fear,0.9423,0.0,0.9727
+happy,0.0,0.0,0.0502
+neutral,0.9547,0.0,0.726
+ps,0.9657,0.0,0.8499
+sad,0.8725,0.25,0.4379
